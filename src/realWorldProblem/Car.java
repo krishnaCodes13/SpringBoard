@@ -1,7 +1,8 @@
 package realWorldProblem;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle implements Payable{
 	private final int noOfSeats;
+	 
 	
 	public Car(String vehicleNumber, String fuelType, int noOfSeats) {
 		super(vehicleNumber, fuelType);
@@ -13,14 +14,22 @@ public class Car extends Vehicle{
 	}
 	
 	@Override
+	public double generateBill(int days) {
+		return this.calculateRentalCharge(days);
+	}
+	
+	@Override
 	public double calculateRentalCharge(int days) {
-		super.setRentalCharge(days*500+100*getNoOfSeats());
+		baseRent = (days*500)+(100*getNoOfSeats());
+		tax = (baseRent/100)*10;
+		totalTax+=tax;
+		super.setRentalCharge(baseRent+tax);
 		return super.getRentalCharge();
 	}
 	
 	@Override
 	public String toString() {
-		return "Car Details :\n"+ "Vehicle Number : "+super.getVehicleNumber()+"\n"+"Fuel Type : "+super.getFuelType()+"\n"+"Rental Charge : "+super.getRentalCharge();	
+		return "--- Rental Bill ---\n"+"Vehicle type : Car\n"+""+"Vehicle Number : "+super.getVehicleNumber()+"\n"+"Fuel Type : "+super.getFuelType()+"\n"+"Base Rental : "+this.baseRent+"\n"+"Tax Collected : "+tax+"\n"+"Rental Charge : \u20B9"+super.getRentalCharge();	
 		}
 
 	

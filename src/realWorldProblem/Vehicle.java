@@ -4,6 +4,10 @@ public abstract class Vehicle {
 	private final String vehicleNumber;
 	private String fuelType;
 	private double rentalCharge;
+	protected double baseRent;
+	protected double tax;
+	public static double totalTax;
+	
 	
 	public Vehicle(String vehicleNumber, String fuelType) {
 		this.vehicleNumber=vehicleNumber;

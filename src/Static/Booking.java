@@ -34,9 +34,11 @@ public class Booking {
 	public boolean isBooked() {
 		if(this.getSeatsRequired()<=getSeatsAvailable()) {
 			setSeatsAvailable(getSeatsAvailable()-this.seatsRequired);
-			return true;
+			isBooked=true;
+			return isBooked;
 		}
-		return false;	
+		isBooked=false;
+		return isBooked;	
 	}
 
 	public void setBooked(boolean isBooked) {

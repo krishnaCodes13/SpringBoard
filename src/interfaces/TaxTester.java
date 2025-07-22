@@ -1,6 +1,6 @@
 package interfaces;
 
-public class Tester {
+public class TaxTester {
 	 public static void main(String args[]) {
 			System.out.println("Purchase Details\n***************");
 			PurchaseDetails purchaseDetails = new PurchaseDetails("P1001","Credit Card");
